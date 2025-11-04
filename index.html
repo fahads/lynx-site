@@ -66,6 +66,13 @@
     <div class="container">
       <h1 class="font-weight-semibold">High Speed Internet Service,<br>No Nonsense.</h1>
       <h6 class="font-weight-normal text-muted pb-3">No contracts, no fees, no rentals, no tricks. Yes!</h6>
+      <div class="address-search-container">
+        <label for="service-area-search" class="address-search-label">Check if we service your area:</label>
+        <div class="autocomplete-wrapper">
+          <input type="text" id="service-area-search" class="form-control address-search-input" placeholder="Enter your address..." autocomplete="off">
+          <div id="autocomplete-results" class="autocomplete-results"></div>
+        </div>
+      </div>
       <div>
         <button class="btn btn-opacity-light mr-1" data-toggle="modal" data-target="#exampleModal">Get started</button>
       </div>
