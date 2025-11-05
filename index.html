@@ -74,6 +74,23 @@
   </div>
   <div class="content-wrapper">
     <div class="container">
+      <section class="service-availability" id="availability-section">
+        <div class="row align-items-center">
+          <div class="col-12 col-lg-6 mb-4 mb-lg-0">
+            <h2 class="font-weight-semibold">Check if we serve your address</h2>
+            <p class="text-muted">Start typing your address to see if Lynx Communications is available in your area.</p>
+          </div>
+          <div class="col-12 col-lg-6">
+            <label class="sr-only" for="service-address-input">Service address</label>
+            <input class="form-control" list="service-addresses" id="service-address-input" name="service-address-input" placeholder="Enter your address" autocomplete="off">
+            <datalist id="service-addresses"></datalist>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+  <div class="content-wrapper">
+    <div class="container">
       <section class="features-overview" id="features-section" >
         <div class="content-header">
           <h2>What you get:</h2>
@@ -423,6 +440,7 @@
   <script src="vendors/bootstrap/bootstrap.min.js"></script>
   <script src="vendors/owl-carousel/js/owl.carousel.min.js"></script>
   <script src="vendors/aos/js/aos.js"></script>
+  <script src="js/service-addresses.js"></script>
   <script src="js/landingpage.min.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBI4-spoSiSEPSHHFMyQCQ3LMaok5Pr-00&libraries=places&callback=initAutocomplete" async defer></script>
 </body>
