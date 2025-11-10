@@ -1,0 +1,48 @@
+.hero-service-form {
+  max-width: 32rem;
+  margin: 1.5rem auto 2rem;
+}
+
+.hero-service-form .input-group {
+  flex-wrap: nowrap;
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.12);
+  border-radius: 0.35rem;
+  overflow: hidden;
+}
+
+.hero-service-input {
+  min-width: 0;
+}
+
+.hero-service-form .input-group-append .btn {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (max-width: 575.98px) {
+  .hero-service-form {
+    width: 100%;
+  }
+
+  .hero-service-form .input-group {
+    flex-wrap: wrap;
+    box-shadow: none;
+  }
+
+  .hero-service-form .form-control.hero-service-input {
+    flex: 1 0 100%;
+    border-radius: 0.35rem;
+    margin-bottom: 0.75rem;
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.12);
+  }
+
+  .hero-service-form .input-group-append {
+    width: 100%;
+    display: flex;
+  }
+
+  .hero-service-form .input-group-append .btn {
+    width: 100%;
+    border-radius: 0.35rem;
+  }
+}
