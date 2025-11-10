@@ -21,6 +21,7 @@
   <link rel="stylesheet" href="vendors/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="vendors/aos/css/aos.css">
   <link rel="stylesheet" href="css/style.min.css">
+  <link rel="stylesheet" href="css/service-form.css">
 </head>
 <body id="body" data-spy="scroll" data-target=".navbar" data-offset="100">
   <header id="header-section">
@@ -66,9 +67,16 @@
     <div class="container">
       <h1 class="font-weight-semibold">High Speed Internet Service,<br>No Nonsense.</h1>
       <h6 class="font-weight-normal text-muted pb-3">No contracts, no fees, no rentals, no tricks. Yes!</h6>
-      <div>
-        <button class="btn btn-opacity-light mr-1" data-toggle="modal" data-target="#exampleModal">Get started</button>
-      </div>
+      <form class="hero-service-form" id="service-address-form">
+        <label class="sr-only" for="service-address-input">Service address</label>
+        <div class="input-group">
+          <input type="text" class="form-control hero-service-input" id="service-address-input" name="service-address" list="service-addresses" placeholder="Enter your address" autocomplete="off" required>
+          <div class="input-group-append">
+            <button class="btn btn-success" type="submit">Check for service</button>
+          </div>
+        </div>
+        <datalist id="service-addresses"></datalist>
+      </form>
       <img src="images/Group171.svg" alt="" class="img-fluid">
     </div>
   </div>
@@ -424,6 +432,7 @@
   <script src="vendors/owl-carousel/js/owl.carousel.min.js"></script>
   <script src="vendors/aos/js/aos.js"></script>
   <script src="js/landingpage.min.js"></script>
+  <script src="js/service-availability.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBI4-spoSiSEPSHHFMyQCQ3LMaok5Pr-00&libraries=places&callback=initAutocomplete" async defer></script>
 </body>
 </html>
