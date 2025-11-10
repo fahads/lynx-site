@@ -66,8 +66,23 @@
     <div class="container">
       <h1 class="font-weight-semibold">High Speed Internet Service,<br>No Nonsense.</h1>
       <h6 class="font-weight-normal text-muted pb-3">No contracts, no fees, no rentals, no tricks. Yes!</h6>
-      <div>
-        <button class="btn btn-opacity-light mr-1" data-toggle="modal" data-target="#exampleModal">Get started</button>
+      <div class="address-search-container">
+        <div class="address-search-form">
+          <div class="form-row justify-content-center">
+            <div class="col-lg-6 col-md-8 col-12 mb-2 mb-md-0">
+              <div class="autocomplete-wrapper">
+                <input type="text" id="address-autocomplete" class="form-control form-control-lg"
+                       placeholder="Enter your address (e.g., 123 Main St, City, State ZIP)">
+                <div id="address-dropdown" class="autocomplete-dropdown"></div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-12">
+              <button type="button" id="check-service-btn" class="btn btn-primary btn-lg btn-block">
+                Check for service
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
       <img src="images/Group171.svg" alt="" class="img-fluid">
     </div>
@@ -417,7 +432,38 @@
           </div>
         </div>
       </div>
-    </div> 
+      <!-- Modal for Service Check -->
+      <div class="modal fade" id="serviceCheckModal" tabindex="-1" role="dialog" aria-labelledby="serviceCheckModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="serviceCheckModalLabel">Great! Service is available at your location</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p class="mb-3">We provide service at: <strong id="selected-address"></strong></p>
+              <p class="mb-4">Please provide your contact information and we'll get you connected!</p>
+              <form id="service-check-form">
+                <div class="form-group">
+                  <label for="customer-name">Name</label>
+                  <input type="text" class="form-control" id="customer-name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                  <label for="customer-phone">Phone Number</label>
+                  <input type="tel" class="form-control" id="customer-phone" placeholder="(555) 123-4567" required>
+                </div>
+                <div class="form-group">
+                  <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-success">Submit</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <script src="vendors/jquery/jquery.min.js"></script>
   <script src="vendors/bootstrap/bootstrap.min.js"></script>
