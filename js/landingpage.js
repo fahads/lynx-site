@@ -102,25 +102,67 @@ $("#contact").submit(function(event){
 	});
 });
 
-//GOOGLE AUTOCOMPLETE
-var autocomplete;
+//CUSTOM ADDRESS AUTOCOMPLETE
+// List of addresses where service is provided
+// Update this array with your actual service locations
+var serviceAddresses = [
+  "123 Main Street, Evanston, IL 60201",
+  "456 Oak Avenue, Evanston, IL 60202",
+  "789 Maple Drive, Oak Park, IL 60302",
+  "321 Elm Street, Chicago, IL 60614",
+  "654 Pine Road, Evanston, IL 60201",
+  "987 Cedar Lane, Chicago, IL 60657",
+  "147 Birch Court, Oak Park, IL 60304",
+  "258 Willow Way, Evanston, IL 60203"
+];
 
-function initAutocomplete() {
-  autocomplete = new google.maps.places.Autocomplete(
-    document.getElementById('autocomplete'), {types: ['geocode']});
-    autocomplete.setFields(['address_component']);
-}
+$(document).ready(function() {
+  var addressInput = $('#autocomplete');
+  var suggestionsDiv = $('#address-suggestions');
 
-function geolocate() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      var geolocation = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude
-      };
-      var circle = new google.maps.Circle(
-        {center: geolocation, radius: position.coords.accuracy});
-        autocomplete.setBounds(circle.getBounds());
+  // Handle input events
+  addressInput.on('input', function() {
+    var query = $(this).val().toLowerCase().trim();
+
+    if (query.length === 0) {
+      suggestionsDiv.hide();
+      return;
+    }
+
+    // Filter addresses that match the query
+    var matches = serviceAddresses.filter(function(address) {
+      return address.toLowerCase().indexOf(query) !== -1;
     });
-  }
-}
+
+    // Display suggestions
+    if (matches.length > 0) {
+      var html = '';
+      matches.forEach(function(address) {
+        html += '<div class="autocomplete-suggestion">' + address + '</div>';
+      });
+      suggestionsDiv.html(html).show();
+    } else {
+      suggestionsDiv.html('<div class="autocomplete-no-results">No matching addresses found. Please check if we service your area.</div>').show();
+    }
+  });
+
+  // Handle suggestion click
+  $(document).on('click', '.autocomplete-suggestion', function() {
+    addressInput.val($(this).text());
+    suggestionsDiv.hide();
+  });
+
+  // Hide suggestions when clicking outside
+  $(document).on('click', function(e) {
+    if (!$(e.target).closest('#autocomplete, #address-suggestions').length) {
+      suggestionsDiv.hide();
+    }
+  });
+
+  // Handle focus
+  addressInput.on('focus', function() {
+    if ($(this).val().length > 0) {
+      $(this).trigger('input');
+    }
+  });
+});

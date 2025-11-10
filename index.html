@@ -21,6 +21,53 @@
   <link rel="stylesheet" href="vendors/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="vendors/aos/css/aos.css">
   <link rel="stylesheet" href="css/style.min.css">
+  <style>
+    /* Custom Address Autocomplete Styles */
+    .autocomplete-suggestions {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      z-index: 9999;
+      background: white;
+      border: 1px solid #ced4da;
+      border-top: none;
+      border-radius: 0 0 0.25rem 0.25rem;
+      max-height: 250px;
+      overflow-y: auto;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      display: none;
+    }
+
+    .autocomplete-suggestion {
+      padding: 12px 15px;
+      cursor: pointer;
+      border-bottom: 1px solid #f0f0f0;
+      transition: background-color 0.2s ease;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .autocomplete-suggestion:last-child {
+      border-bottom: none;
+    }
+
+    .autocomplete-suggestion:hover {
+      background-color: #f8f9fa;
+      color: #000637;
+    }
+
+    .autocomplete-no-results {
+      padding: 12px 15px;
+      color: #6c757d;
+      font-size: 14px;
+      font-style: italic;
+    }
+
+    .autocomplete-wrapper {
+      position: relative;
+    }
+  </style>
 </head>
 <body id="body" data-spy="scroll" data-target=".navbar" data-offset="100">
   <header id="header-section">
@@ -384,7 +431,10 @@
                 </div>
                 <div class="form-group">
                   <label for="address">Address</label>
-                  <input name="address" id="autocomplete" type="text" class="form-control" placeholder="Address" onfocus="geolocate()">
+                  <div class="autocomplete-wrapper" style="position: relative;">
+                    <input name="address" id="autocomplete" type="text" class="form-control" placeholder="Start typing your address..." autocomplete="off">
+                    <div id="address-suggestions" class="autocomplete-suggestions"></div>
+                  </div>
                 </div>
                 <div class="form-group">
                   <label for="unit">Unit</label>
@@ -423,7 +473,6 @@
   <script src="vendors/bootstrap/bootstrap.min.js"></script>
   <script src="vendors/owl-carousel/js/owl.carousel.min.js"></script>
   <script src="vendors/aos/js/aos.js"></script>
-  <script src="js/landingpage.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBI4-spoSiSEPSHHFMyQCQ3LMaok5Pr-00&libraries=places&callback=initAutocomplete" async defer></script>
+  <script src="js/landingpage.js"></script>
 </body>
 </html>
